@@ -1,8 +1,10 @@
-package com.scalabilitysolved.couchbase.controllers;
+package com.scalabilitysolved.couchbase.domain;
 
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
+
+import com.scalabilitysolved.couchbase.domain.User;
 
 public class UserTest {
 

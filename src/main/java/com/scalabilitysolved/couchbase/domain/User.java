@@ -1,4 +1,4 @@
-package com.scalabilitysolved.couchbase.controllers;
+package com.scalabilitysolved.couchbase.domain;
 
 public class User {
 

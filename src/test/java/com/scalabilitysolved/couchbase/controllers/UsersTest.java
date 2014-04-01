@@ -14,6 +14,9 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
+import com.scalabilitysolved.couchbase.dao.UserDao;
+import com.scalabilitysolved.couchbase.domain.User;
+
 @RunWith(MockitoJUnitRunner.class)
 public class UsersTest {
 
