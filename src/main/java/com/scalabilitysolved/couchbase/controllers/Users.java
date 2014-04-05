@@ -1,6 +1,7 @@
 package com.scalabilitysolved.couchbase.controllers;
 
 import javax.ws.rs.Consumes;
+import javax.ws.rs.FormParam;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -10,7 +11,6 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
 import com.scalabilitysolved.couchbase.dao.UserDao;
-import com.scalabilitysolved.couchbase.domain.User;
 
 @Path("/users")
 @Produces(MediaType.APPLICATION_JSON)
@@ -24,12 +24,12 @@ public class Users {
 	}
 
 	@POST
-	public Response createUser(String source) {
+	public Response createUser(@FormParam("source") String source) {
 		if (source == null) {
 			throw new WebApplicationException(Response.status(Status.BAD_REQUEST).entity("Source cannot be null").build());
 		}
 
-		User user = this.userDao.saveUser(source);
+		String user = this.userDao.saveUser(source);
 
 		return Response.status(Status.CREATED).entity(user).build();
 	}
