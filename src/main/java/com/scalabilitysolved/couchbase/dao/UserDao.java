@@ -2,12 +2,17 @@ package com.scalabilitysolved.couchbase.dao;
 
 import java.util.concurrent.ExecutionException;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.couchbase.client.CouchbaseClient;
 import com.google.gson.Gson;
 import com.scalabilitysolved.couchbase.CouchbaseConnector;
 import com.scalabilitysolved.couchbase.domain.User;
 
 public class UserDao {
+
+	static final Logger LOG = LoggerFactory.getLogger(UserDao.class);
 
 	private CouchbaseClient couchbase;
 	private Gson gson;
@@ -29,6 +34,7 @@ public class UserDao {
 		}
 
 		String userJson = (String) this.couchbase.get(key);
+		LOG.debug("Generated new user with id: {}", key);
 
 		return userJson;
 	}

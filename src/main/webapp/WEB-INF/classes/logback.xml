@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration>
+	<contextName>caerus</contextName>
+
+
+	<appender name="ROLLING"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>caerus.log</file>
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<Pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
+			</Pattern>
+		</layout>
+	</appender>
+
+	<appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+		<Target>System.out</Target>
+		<encoder>
+			<Pattern>%d{HH:mm:ss.SSS} [%level] %logger{36} - %msg%n
+			</Pattern>
+			<charset>UTF-8</charset>
+		</encoder>
+	</appender>
+
+
+	<root>
+		<level value="debug" />
+		<appender-ref ref="console" />
+		<appender-ref ref="ROLLING" />
+	</root>
+</configuration>
+	
