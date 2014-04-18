@@ -13,9 +13,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.couchbase.client.CouchbaseClient;
-import com.sun.jersey.spi.resource.Singleton;
 
-@Singleton
 public class CouchbaseConnector {
 
 	static final Logger LOG = LoggerFactory.getLogger(CouchbaseConnector.class);

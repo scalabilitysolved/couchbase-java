@@ -24,5 +24,6 @@
 	</bean>
 
 	<!-- COUCHBASE -->
-	<bean id="couchbase" class="com.scalabilitysolved.couchbase.CouchbaseConnector" />
+	<bean id="couchbase" class="com.scalabilitysolved.couchbase.CouchbaseConnector"
+		scope="singleton" />
 </beans>
