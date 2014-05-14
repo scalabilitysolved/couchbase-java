@@ -11,7 +11,6 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import com.couchbase.client.CouchbaseClient;
@@ -50,6 +49,13 @@ public class UserDaoTest {
 
 		String user = this.userDao.saveUser(SOURCE);
 		assertNotNull(user);
+	}
+
+	@Test(expected = RuntimeException.class)
+	public void testSaveUserFailsOnAddDueToTimeout() {
+		when(couchbase.incr(anyString(), anyInt())).thenReturn(0l);
+		when(couchbase.add(anyString(), anyObject())).thenThrow(InterruptedException.class);
+		this.userDao.saveUser(SOURCE);
 	}
 
 	private String userBuilder() {
